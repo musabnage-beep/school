@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Better University</title>
+    <link rel="stylesheet" href="better.css">
+</head>
+<body>
+    <!-- LOGIN SCREEN -->
+    <div class="login-container" id="loginScreen">
+        <div class="login-card">
+            <div class="login-header">
+                <span class="logo">🎓</span>
+                <h1>Better University</h1>
+                <p>Student Portal</p>
+            </div>
+            
+            <div class="login-form">
+                <input type="number" id="studentId" placeholder="Student ID" required>
+                <input type="text" id="studentName" placeholder="Full Name (First Last)" required>
+                <button onclick="login()" class="login-btn">Login</button>
+                <p id="errorMsg" class="error-msg"></p>
+            </div>
+            
+            <div class="login-footer">
+                <p>Enter your ID and full name to access your dashboard</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard-container" id="dashboardScreen">
+        <!-- Top Navigation Bar -->
+        <nav class="top-navbar">
+            <div class="nav-brand">
+                <span class="logo">🎓</span>
+                <h2>Better University</h2>
+            </div>
+            <div class="nav-user">
+                <span id="navUserName">Student Name</span>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Main Dashboard Layout -->
+        <div class="dashboard-main">
+            <!-- Sidebar Menu -->
+            <aside class="sidebar">
+                <ul class="menu-list">
+                    <li class="menu-item active" onclick="showSection('profile')">
+                        <span class="icon">👤</span>
+                        <span>Profile</span>
+                    </li>
+                    <li class="menu-item" onclick="showSection('schedule')">
+                        <span class="icon">📅</span>
+                        <span>Schedule</span>
+                    </li>
+                    <li class="menu-item" onclick="showSection('grades')">
+                        <span class="icon">📊</span>
+                        <span>Grades</span>
+                    </li>
+                    <li class="menu-item" onclick="showSection('courses')">
+                        <span class="icon">📚</span>
+                        <span>My Courses</span>
+                    </li>
+                    <li class="menu-item" onclick="showSection('info')">
+                        <span class="icon">ℹ️</span>
+                        <span>Information</span>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                <!-- PROFILE SECTION -->
+                <section id="profile" class="content-section active">
+                    <div class="section-header">
+                        <h2>Student Profile</h2>
+                    </div>
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <span class="avatar-icon">👤</span>
+                        </div>
+                        <div class="profile-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Student ID:</span>
+                                <span class="detail-value" id="profileId">-</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Full Name:</span>
+                                <span class="detail-value" id="profileName">-</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Email:</span>
+                                <span class="detail-value" id="profileEmail">-</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Major:</span>
+                                <span class="detail-value" id="profileMajor">-</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Level:</span>
+                                <span class="detail-value" id="profileLevel">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SCHEDULE SECTION -->
+                <section id="schedule" class="content-section">
+                    <div class="section-header">
+                        <h2>My Class Schedule</h2>
+                        <p class="section-subtitle">Fall 2024 Semester</p>
+                    </div>
+                    <div id="scheduleContent" class="schedule-grid">
+                        <!-- Dynamically filled -->
+                    </div>
+                </section>
+
+                <!-- GRADES SECTION -->
+                <section id="grades" class="content-section">
+                    <div class="section-header">
+                        <h2>Academic Grades</h2>
+                        <p class="section-subtitle">Current Semester Performance</p>
+                    </div>
+                    <div id="gradesContent" class="grades-table-container">
+                        <!-- Dynamically filled -->
+                    </div>
+                </section>
+
+                <!-- COURSES SECTION -->
+                <section id="courses" class="content-section">
+                    <div class="section-header">
+                        <h2>Enrolled Courses</h2>
+                        <p class="section-subtitle">Detailed Course Information</p>
+                    </div>
+                    <div id="coursesContent" class="courses-grid">
+                        <!-- Dynamically filled -->
+                    </div>
+                </section>
+
+                <!-- INFORMATION SECTION -->
+                <section id="info" class="content-section">
+                    <div class="section-header">
+                        <h2>Student Information</h2>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-card">
+                            <h3>📚 Academic Resources</h3>
+                            <p>Access library resources, academic calendar, and study materials through the university portal.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>💬 Support Services</h3>
+                            <p>Contact academic advisors, counseling services, and technical support for assistance.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>📧 Contact Information</h3>
+                            <p>Registrar Office: registrar@better-university.edu</p>
+                            <p>IT Support: support@better-university.edu</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="better.js"></script>
+</body>
+</html>
